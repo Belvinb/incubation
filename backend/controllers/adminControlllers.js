@@ -195,6 +195,15 @@ const recordList = asyncHandler(async (req,res)=>{
   }
 })
 
+const viewDetails = asyncHandler(async (req,res)=>{
+  let applicationId = req.params.applicationId
+  try {
+    const details = await Application.findById(applicationId)
+    res.json(details)
+  } catch (error) {
+    res.json(error)
+  }
+})
 
 module.exports = {
   registerAdmin,
@@ -209,4 +218,5 @@ module.exports = {
   declineProcess,
   approveProcess,
   recordList,
+  viewDetails,
 };

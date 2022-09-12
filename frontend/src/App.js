@@ -12,6 +12,7 @@ import EditUser from "./components/AdminDashboard/EditUser";
 import AdminHome from "./components/AdminHome/AdminHome";
 import AdminHeader from "./components/Header/AdminHeader";
 import AdminRecordList from "./components/AdminRecordList/AdminRecordList";
+import ViewDetails from "./components/AdminHome/viewDetails";
 
 function App() {
   return (
@@ -19,28 +20,22 @@ function App() {
       {/* <Header /> */}
 
       <Routes>
-        <Route path="/" element={<Loginpage />} exact />
+        {/* <Route path="/" element={<Loginpage />} exact /> */}
         {/* <Route path="/login" element={<Loginpage />} exact /> */}
-        <Route path="/signup" element={<SignupPage />} exact />
-        <Route path="/home" element={<HomePage />} exact />
-        {/* <Route path="/admin" element={<AdminLanding />} exact /> */}
-        {/* <Route path="/admindashboard" element={<AdminDashboard />} exact /> */}
-        {/* <Route path="/adminHome" element={<AdminHome />} exact /> */}
-        {/* <Route path="/edit/:userId" element={<EditUser />} exact /> */}
-        {/* <Route exact path="/admin">
-          <Route
-            path=""
-            element={<AdminHeader children={<AdminLanding />} />}
-          />
-          <Route
-            path="adminHome"
-            element={<AdminHome children={<AdminHome />} />}
-          />
-        </Route> */}
-        <Route element={<AdminHeader/>}>
-          <Route path="/admin" element={<AdminLanding/>}/>
-          <Route path="/adminHome" element={<AdminHome/>}/>
-          <Route path="/recordList" element={<AdminRecordList/>}/>
+        {/* <Route path="/signup" element={<SignupPage />} exact />
+        <Route path="/home" element={<HomePage />} exact /> */}
+
+        <Route element={<Header />}>
+          <Route path="/" element={<Loginpage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/home" element={<HomePage />} />
+        </Route>
+
+        <Route element={<AdminHeader />}>
+          <Route path="/admin" element={<AdminLanding />} />
+          <Route path="/adminHome" element={<AdminHome />} />
+          <Route path="/recordList" element={<AdminRecordList />} />
+          <Route path="/viewDetails/:applicationId" element={<ViewDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>

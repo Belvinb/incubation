@@ -92,7 +92,13 @@ const AdminHome = () => {
 
   
 
-  const showDetails = (applicationId) => {};
+  const showDetails = async(applicationId) => {
+    try {
+      navigate(`/viewDetails/${applicationId}`)
+    } catch (error) {
+      throw new error(error.response.data.message);
+    }
+  };
 
   async function Decline(declineId) {
 
